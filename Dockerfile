@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:lts-alpine3.11
 RUN apk add --no-cache \
       chromium \
       nss \
@@ -6,7 +6,7 @@ RUN apk add --no-cache \
       freetype-dev \
       harfbuzz \
       ca-certificates \
-      ttf-freefont
+      ttf-freefont --repository=http://dl-cdn.alpinelinux.org/alpine/v3.11/community
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 WORKDIR /app
 COPY package*.json ./
